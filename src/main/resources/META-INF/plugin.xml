@@ -1,0 +1,35 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.github.joechung2008.diagnostics-jetbrains</id>
+
+    <!-- Public plugin name should be written in Title Case. -->
+    <name>Azure Portal Extensions Dashboard</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://github.com/joechung2008/diagnostics-jetbrains">joechung2008</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager. -->
+    <description><![CDATA[
+        Information about extensions on the Azure portal.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <actions>
+        <action id="Diagnostics.ShowExtensions"
+                class="com.github.joechung2008.diagnostics.actions.ShowExtensionsAction"
+                text="Show Azure Portal Extensions"
+                description="Show information about extensions in the Azure portal">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Extensions"
+                    factoryClass="com.github.joechung2008.diagnostics.toolwindows.ExtensionsToolWindowFactory"
+                    anchor="right"
+                    canCloseContents="false"
+                    secondary="false"/>
+    </extensions>
+</idea-plugin>
